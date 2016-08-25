@@ -12,3 +12,8 @@ $factory(App\Post::class, [
 	'title' => $faker->name,
 	'body' => $faker->paragraph
 ]);
+
+$factory(App\Comment::class, [
+        'post_id' => 'factory:App\Post',
+        'body' => $faker->paragraph
+]);
