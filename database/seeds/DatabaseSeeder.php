@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+use App\Comment;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-         $this->call(PostsTableSeeder::class);
+        Post::truncate();
+        Comment::truncate();
+
+        $this->call(PostsTableSeeder::class);
+        $this->call(CommentsTableSeeder::class);
 
         Model::reguard();
     }
